@@ -14,6 +14,8 @@ public class Lecture extends BaseEntity {
 
     private String description;
 
+    private String category;
+
     private boolean isVideoFinished;
 
     public Lecture() {
@@ -46,4 +48,9 @@ public class Lecture extends BaseEntity {
     public void setVideoFinished(boolean videoFinished) {
         isVideoFinished = videoFinished;
     }
+
+    @Column(nullable = false)
+    public String getCategory() { return category; }
+
+    public void setCategory(String category) { this.category = category; }
 }
