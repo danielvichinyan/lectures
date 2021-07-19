@@ -1,5 +1,7 @@
 package com.knowit.lectures.domain.entities;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
