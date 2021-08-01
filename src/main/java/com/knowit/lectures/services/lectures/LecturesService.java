@@ -19,5 +19,5 @@ public interface LecturesService {
 
     Lecture findById(String id);
 
-    List<Lecture> getAllLectures();
+    List<LectureResponseModel> getAllLectures();
 }
