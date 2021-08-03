@@ -5,5 +5,5 @@ import com.knowit.lectures.exceptions.UserDoesNotExist;
 
 public interface UserService {
 
-    User fetchUserById(String userId) throws UserDoesNotExist;
+    User fetchByUserId(String userId) throws UserDoesNotExist;
 }

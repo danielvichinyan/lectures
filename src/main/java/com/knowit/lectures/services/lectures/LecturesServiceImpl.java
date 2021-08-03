@@ -1,19 +1,26 @@
 package com.knowit.lectures.services.lectures;
 
+import com.knowit.lectures.constants.ExceptionConstants;
+import com.knowit.lectures.domain.entities.ERole;
 import com.knowit.lectures.domain.entities.Lecture;
+import com.knowit.lectures.domain.entities.Role;
 import com.knowit.lectures.domain.entities.User;
 import com.knowit.lectures.domain.models.LectureResponseModel;
 import com.knowit.lectures.domain.models.LectureVideoRequestModel;
 import com.knowit.lectures.exceptions.UserDoesNotExist;
 import com.knowit.lectures.repository.LectureRepository;
+import com.knowit.lectures.repository.RoleRepository;
 import com.knowit.lectures.services.users.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class LecturesServiceImpl implements LecturesService {
@@ -22,17 +29,20 @@ public class LecturesServiceImpl implements LecturesService {
     private final StreamBridge streamBridge;
     private final ModelMapper modelMapper;
     private final UserService userService;
+    private final RoleRepository roleRepository;
 
     public LecturesServiceImpl(
             LectureRepository lectureRepository,
             StreamBridge streamBridge,
             ModelMapper modelMapper,
-            UserService userService
+            UserService userService,
+            RoleRepository roleRepository
     ) {
         this.lectureRepository = lectureRepository;
         this.streamBridge = streamBridge;
         this.modelMapper = modelMapper;
         this.userService = userService;
+        this.roleRepository = roleRepository;
     }
 
     @Override
@@ -42,14 +52,13 @@ public class LecturesServiceImpl implements LecturesService {
             String description,
             String category
     ) throws UserDoesNotExist, IOException {
-        User authorizedUser = this.userService.fetchUserById(user.getId());
-
         Lecture lecture = new Lecture();
         lecture.setName(name);
         lecture.setDescription(description);
         lecture.setCategory(category);
 
         this.lectureRepository.saveAndFlush(lecture);
+
         // Returned to the front-end
         LectureResponseModel responseModel = new LectureResponseModel();
         responseModel.setName(lecture.getName());
