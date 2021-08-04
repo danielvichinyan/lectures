@@ -80,6 +80,18 @@ public class LecturesServiceImpl implements LecturesService {
     }
 
     @Override
+    public LectureResponseModel findByName(String name) {
+        Lecture lecture = this.lectureRepository.findByName(name);
+        LectureResponseModel lectureResponseModel = new LectureResponseModel();
+
+        lectureResponseModel.setName(lecture.getName());
+        lectureResponseModel.setDescription(lecture.getName());
+        lectureResponseModel.setCategory(lecture.getCategory());
+
+        return lectureResponseModel;
+    }
+
+    @Override
     public List<LectureResponseModel> getAllLectures() {
         List<Lecture> lectureList = this.lectureRepository.findAll();
         List<LectureResponseModel> mappedList = new ArrayList<>();

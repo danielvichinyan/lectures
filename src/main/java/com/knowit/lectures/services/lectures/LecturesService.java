@@ -20,4 +20,6 @@ public interface LecturesService {
     Lecture findById(String id);
 
     List<LectureResponseModel> getAllLectures();
+
+    LectureResponseModel findByName(String name);
 }

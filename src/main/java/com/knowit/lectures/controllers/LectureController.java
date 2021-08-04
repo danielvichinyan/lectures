@@ -39,4 +39,9 @@ public class LectureController {
     public List<LectureResponseModel> getAllLectures() {
         return this.lecturesService.getAllLectures();
     }
+
+    @GetMapping("/lecture/{name}")
+    public LectureResponseModel getLectureByName(@PathVariable String name) {
+        return this.lecturesService.findByName(name);
+    }
 }
