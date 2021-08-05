@@ -1,6 +1,5 @@
 package com.knowit.lectures.services.quizzes;
 
-import com.knowit.lectures.domain.entities.Quiz;
 import com.knowit.lectures.domain.entities.User;
 import com.knowit.lectures.domain.models.QuizResponseModel;
 import com.knowit.lectures.exceptions.UserDoesNotExist;
