@@ -1,9 +1,6 @@
 package com.knowit.lectures.services.lectures;
 
-import com.knowit.lectures.constants.ExceptionConstants;
-import com.knowit.lectures.domain.entities.ERole;
 import com.knowit.lectures.domain.entities.Lecture;
-import com.knowit.lectures.domain.entities.Role;
 import com.knowit.lectures.domain.entities.User;
 import com.knowit.lectures.domain.models.LectureResponseModel;
 import com.knowit.lectures.domain.models.LectureVideoRequestModel;
@@ -13,14 +10,11 @@ import com.knowit.lectures.repository.RoleRepository;
 import com.knowit.lectures.services.users.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.cloud.stream.function.StreamBridge;
-import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class LecturesServiceImpl implements LecturesService {
