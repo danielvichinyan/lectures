@@ -28,13 +28,15 @@ public class QuizServiceImpl implements QuizService {
             String name,
             String description,
             String answer,
-            Long reward
+            Long reward,
+            String category
     ) throws UserDoesNotExist, IOException {
         Quiz quiz = new Quiz();
         quiz.setName(name);
         quiz.setDescription(description);
         quiz.setAnswer(answer);
         quiz.setReward(reward);
+        quiz.setCategory(category);
         this.quizRepository.saveAndFlush(quiz);
 
         QuizResponseModel quizResponseModel = new QuizResponseModel();
@@ -42,6 +44,7 @@ public class QuizServiceImpl implements QuizService {
         quizResponseModel.setDescription(quiz.getDescription());
         quizResponseModel.setAnswer(quiz.getAnswer());
         quizResponseModel.setReward(quiz.getReward());
+        quizResponseModel.setCategory(quiz.getCategory());
 
         return quizResponseModel;
     }
@@ -55,6 +58,7 @@ public class QuizServiceImpl implements QuizService {
         quizResponseModel.setDescription(quiz.getName());
         quizResponseModel.setAnswer(quiz.getAnswer());
         quizResponseModel.setReward(quiz.getReward());
+        quizResponseModel.setCategory(quiz.getCategory());
 
         return quizResponseModel;
     }
@@ -70,6 +74,7 @@ public class QuizServiceImpl implements QuizService {
             quizResponseModel.setDescription(quiz.getDescription());
             quizResponseModel.setAnswer(quiz.getAnswer());
             quizResponseModel.setReward(quiz.getReward());
+            quizResponseModel.setCategory(quiz.getCategory());
             mappedList.add(quizResponseModel);
         });
 

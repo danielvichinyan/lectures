@@ -18,6 +18,8 @@ public class Quiz extends BaseEntity {
 
     private Long reward;
 
+    private String category;
+
     public Quiz() {
         this.solved = false;
     }
@@ -66,4 +68,9 @@ public class Quiz extends BaseEntity {
     public void setReward(Long reward) {
         this.reward = reward;
     }
+
+    @Column(nullable = false)
+    public String getCategory() { return category; }
+
+    public void setCategory(String category) { this.category = category; }
 }

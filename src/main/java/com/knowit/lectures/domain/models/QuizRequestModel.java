@@ -10,6 +10,8 @@ public class QuizRequestModel {
 
     private Long reward;
 
+    private String category;
+
     public String getName() {
         return name;
     }
@@ -41,4 +43,8 @@ public class QuizRequestModel {
     public void setReward(Long reward) {
         this.reward = reward;
     }
+
+    public String getCategory() { return category; }
+
+    public void setCategory(String category) { this.category = category; }
 }

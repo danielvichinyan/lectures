@@ -10,6 +10,8 @@ public class QuizResponseModel {
 
     private Long reward;
 
+    private String category;
+
     public String getName() {
         return name;
     }
@@ -18,9 +20,7 @@ public class QuizResponseModel {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() { return description; }
 
     public void setDescription(String description) {
         this.description = description;
@@ -38,7 +38,9 @@ public class QuizResponseModel {
         return reward;
     }
 
-    public void setReward(Long reward) {
-        this.reward = reward;
-    }
+    public void setReward(Long reward) { this.reward = reward; }
+
+    public String getCategory() { return category; }
+
+    public void setCategory(String category) { this.category = category; }
 }
