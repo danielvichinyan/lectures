@@ -15,7 +15,8 @@ public interface QuizService {
       String description,
       String answer,
       Long reward,
-      String category
+      String category,
+      String hint
     ) throws UserDoesNotExist, IOException;
 
     QuizResponseModel findByName(String name);

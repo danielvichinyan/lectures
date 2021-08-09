@@ -33,7 +33,8 @@ public class QuizController {
                 model.getDescription(),
                 model.getAnswer(),
                 model.getReward(),
-                model.getCategory()
+                model.getCategory(),
+                model.getHint()
         );
     }
 

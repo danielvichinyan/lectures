@@ -12,6 +12,8 @@ public class QuizRequestModel {
 
     private String category;
 
+    private String hint;
+
     public String getName() {
         return name;
     }
@@ -47,4 +49,8 @@ public class QuizRequestModel {
     public String getCategory() { return category; }
 
     public void setCategory(String category) { this.category = category; }
+
+    public String getHint() { return hint; }
+
+    public void setHint(String hint) { this.hint = hint; }
 }

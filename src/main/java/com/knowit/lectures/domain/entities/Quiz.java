@@ -20,6 +20,8 @@ public class Quiz extends BaseEntity {
 
     private String category;
 
+    private String hint;
+
     public Quiz() {
         this.solved = false;
     }
@@ -73,4 +75,9 @@ public class Quiz extends BaseEntity {
     public String getCategory() { return category; }
 
     public void setCategory(String category) { this.category = category; }
+
+    @Column(nullable = false)
+    public String getHint() { return hint; }
+
+    public void setHint(String hint) { this.hint = hint; }
 }
