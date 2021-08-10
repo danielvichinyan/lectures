@@ -79,7 +79,7 @@ public class LecturesServiceImpl implements LecturesService {
         LectureResponseModel lectureResponseModel = new LectureResponseModel();
 
         lectureResponseModel.setName(lecture.getName());
-        lectureResponseModel.setDescription(lecture.getName());
+        lectureResponseModel.setDescription(lecture.getDescription());
         lectureResponseModel.setCategory(lecture.getCategory());
 
         return lectureResponseModel;

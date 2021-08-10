@@ -58,7 +58,7 @@ public class QuizServiceImpl implements QuizService {
         QuizResponseModel quizResponseModel = new QuizResponseModel();
 
         quizResponseModel.setName(quiz.getName());
-        quizResponseModel.setDescription(quiz.getName());
+        quizResponseModel.setDescription(quiz.getDescription());
         quizResponseModel.setAnswer(quiz.getAnswer());
         quizResponseModel.setReward(quiz.getReward());
         quizResponseModel.setCategory(quiz.getCategory());
